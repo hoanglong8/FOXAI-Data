@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cẩm nang Pháp luật Dữ liệu &amp; AI Việt Nam</title>
+<meta name="description" content="Tổng hợp và tra cứu nhanh các quy định pháp luật Việt Nam về dữ liệu số và trí tuệ nhân tạo: Luật Dữ liệu, các Nghị định hướng dẫn, Khung kiến trúc dữ liệu quốc gia và quy định của Hà Nội.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚖️</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="topbar">
+  <div><span class="dot"></span>Cẩm nang tra cứu · Luật Dữ liệu 60/2024/QH15 &amp; hệ sinh thái văn bản hướng dẫn</div>
+  <div class="topbar-right">Cập nhật: Tháng 9/2026</div>
+</div>
+
+<header class="site-header">
+  <div class="header-inner">
+    <div class="brand">
+      <div class="brand-icon">⚖️</div>
+      <div class="brand-text">
+        <h1>Pháp luật Dữ liệu &amp; AI Việt Nam <span class="badge-pill">Không thay thế văn bản gốc</span></h1>
+        <p>Tổng hợp, hệ thống hoá quy định về dữ liệu số, quản trị dữ liệu và trí tuệ nhân tạo — từ luật trung ương đến quy định của Hà Nội</p>
+      </div>
+    </div>
+    <div class="header-actions">
+      <a class="btn" href="https://github.com/hoanglong8/FOXAI-Data/tree/main/Quy%20%C4%91%E1%BB%8Bnh%20ph%C3%A1p%20lu%E1%BA%ADt%20VN%20v%E1%BB%81%20d%E1%BB%AF%20li%E1%BB%87u%20v%C3%A0%20AI" target="_blank" rel="noopener">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.5 2.87 8.32 6.84 9.67.5.1.68-.22.68-.48 0-.24-.01-1.02-.01-1.85-2.79.51-3.52-.68-3.75-1.31-.13-.32-.68-1.31-1.16-1.58-.4-.21-.97-.74-.01-.75.9-.01 1.55.83 1.76 1.18 1.03 1.72 2.67 1.24 3.32.94.1-.74.4-1.24.73-1.53-2.5-.28-5.12-1.24-5.12-5.53 0-1.22.44-2.22 1.16-3-.12-.28-.5-1.42.11-2.96 0 0 .95-.3 3.1 1.13.9-.25 1.86-.37 2.82-.37s1.92.13 2.82.37c2.15-1.44 3.1-1.13 3.1-1.13.61 1.54.23 2.68.11 2.96.72.78 1.16 1.77 1.16 3 0 4.3-2.63 5.25-5.14 5.53.41.35.76 1.04.76 2.1 0 1.52-.01 2.74-.01 3.12 0 .26.18.58.68.48A10.02 10.02 0 0022 12.25C22 6.58 17.52 2 12 2z"/></svg>
+        Nguồn văn bản gốc
+      </a>
+      <a class="btn btn-accent" href="#" id="btn-glossary-shortcut" onclick="showTab('tudien');return false;">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>
+        Từ điển thuật ngữ
+      </a>
+    </div>
+  </div>
+</header>
+
+<div class="search-wrap">
+  <div class="search-box">
+    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+    <input id="search-input" type="text" placeholder="Tra cứu số hiệu, tên văn bản, thuật ngữ… ví dụ: NĐ 278, dữ liệu mở, AI, định danh, DQI…" autocomplete="off">
+    <span class="search-hint">gõ để tìm</span>
+  </div>
+</div>
+
+<div id="tabs-scope">
+<nav class="tabs">
+  <button class="tab-btn active" id="tab-tongquan" onclick="showTab('tongquan')">🏛️ Tổng quan</button>
+  <button class="tab-btn" id="tab-luat" onclick="showTab('luat')">📜 Luật &amp; Nghị định</button>
+  <button class="tab-btn" id="tab-khungkientruc" onclick="showTab('khungkientruc')">🗺️ Khung Kiến trúc Dữ liệu QG</button>
+  <button class="tab-btn" id="tab-hanoi" onclick="showTab('hanoi')">🏙️ Quy định Hà Nội</button>
+  <button class="tab-btn" id="tab-tudien" onclick="showTab('tudien')">📖 Từ điển thuật ngữ</button>
+  <button class="tab-btn" id="tab-tatca" onclick="showTab('tatca')">🗂️ Toàn bộ văn bản</button>
+</nav>
+</div>
+
+<main>
+
+  <!-- ===================== SEARCH RESULTS ===================== -->
+  <div id="search-results"></div>
+
+  <!-- ===================== TAB: TỔNG QUAN ===================== -->
+  <section class="tab-panel active" id="panel-tongquan">
+    <div class="hero">
+      <span class="chip">🇻🇳 Hệ thống pháp luật về dữ liệu &amp; AI</span>
+      <h2>Từ Luật Dữ liệu đến Khung quản trị dữ liệu quốc gia</h2>
+      <p class="lead">Kể từ khi <b>Luật Dữ liệu số 60/2024/QH15</b> được Quốc hội thông qua ngày 30/11/2024 (hiệu lực 01/7/2025), Việt Nam đã hình thành một hệ sinh thái văn bản pháp luật khá đầy đủ để quản trị dữ liệu số quốc gia: từ các Nghị định hướng dẫn thi hành, đến Khung kiến trúc &amp; quản trị dữ liệu quốc gia (Quyết định 2439/QĐ-TTg), và các quy định thí điểm đặc thù của Hà Nội về AI, quản trị dữ liệu và chia sẻ dữ liệu công–tư. Trang này tổng hợp và hệ thống hoá các văn bản đó để tra cứu nhanh.</p>
+      <div class="stat-grid">
+        <div class="stat-card"><div class="num c-orange" id="stat-total">–</div><div class="lbl">Văn bản được hệ thống hoá</div></div>
+        <div class="stat-card"><div class="num c-blue" id="stat-nd">–</div><div class="lbl">Nghị định hướng dẫn thi hành</div></div>
+        <div class="stat-card"><div class="num c-purple" id="stat-hn">–</div><div class="lbl">Quyết định của UBND Hà Nội</div></div>
+        <div class="stat-card"><div class="num c-green" id="stat-terms">–</div><div class="lbl">Thuật ngữ được giải nghĩa</div></div>
+      </div>
+    </div>
+
+    <div class="section-title"><h3>⏱️ Dòng thời gian ban hành</h3></div>
+    <div class="hero" style="padding:22px 26px;">
+      <div class="timeline" id="timeline"></div>
+    </div>
+
+    <div class="section-title"><h3>🧭 Cách sử dụng trang này</h3></div>
+    <div class="glossary-grid">
+      <div class="term-card">
+        <div class="term">1. Tra cứu theo tab</div>
+        <div class="def">Mỗi tab tương ứng một nhóm văn bản: luật/nghị định trung ương, khung kiến trúc dữ liệu quốc gia, hoặc quy định riêng của Hà Nội. Bấm vào từng thẻ văn bản để xem chi tiết nội dung chính, điểm đáng chú ý và liên kết văn bản gốc.</div>
+      </div>
+      <div class="term-card">
+        <div class="term">2. Tìm kiếm nhanh</div>
+        <div class="def">Dùng ô tìm kiếm ở đầu trang để lọc theo số hiệu (VD "165"), chủ đề (VD "AI Agent", "dữ liệu mở") hoặc thuật ngữ chuyên ngành (VD "NDOP", "DQI", "dữ liệu cốt lõi").</div>
+      </div>
+      <div class="term-card">
+        <div class="term">3. Từ điển thuật ngữ</div>
+        <div class="def">Tab "Từ điển thuật ngữ" giải nghĩa các khái niệm pháp lý và kỹ thuật quan trọng nhất, trích trực tiếp từ Điều 3 Luật Dữ liệu và các văn bản liên quan.</div>
+      </div>
+      <div class="term-card">
+        <div class="term">⚠️ Lưu ý pháp lý</div>
+        <div class="def">Nội dung trên trang mang tính tổng hợp, tham khảo, được xử lý bằng AI từ các file văn bản gốc lưu trong repo. Khi áp dụng thực tế, vui lòng đối chiếu với văn bản gốc (đường link "Xem văn bản gốc" trong mỗi thẻ) hoặc Công báo Chính phủ / Cổng thông tin điện tử UBND TP Hà Nội.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== TAB: LUẬT & NGHỊ ĐỊNH ===================== -->
+  <section class="tab-panel" id="panel-luat">
+    <div class="hero">
+      <span class="chip">📜 Cấp trung ương</span>
+      <h2>Luật Dữ liệu và các Nghị định hướng dẫn thi hành</h2>
+      <p class="lead">Nhóm văn bản nền tảng ở cấp trung ương: <b>Luật Dữ liệu số 60/2024/QH15</b> là luật gốc, cùng <b>Luật Giao dịch điện tử 2023</b>, và các Nghị định quy định chi tiết việc thi hành — về bảo vệ/quản trị dữ liệu, kết nối chia sẻ dữ liệu bắt buộc, cơ sở dữ liệu quốc gia về dân cư/căn cước, và định danh địa điểm.</p>
+    </div>
+    <div class="section-title"><h3>Danh sách văn bản</h3></div>
+    <div class="doc-list" id="cat-luat"></div>
+  </section>
+
+  <!-- ===================== TAB: KHUNG KIẾN TRÚC DỮ LIỆU QG ===================== -->
+  <section class="tab-panel" id="panel-khungkientruc">
+    <div class="hero">
+      <span class="chip">🗺️ Hạ tầng &amp; kiến trúc kỹ thuật</span>
+      <h2>Khung Kiến trúc &amp; Quản trị Dữ liệu Quốc gia</h2>
+      <p class="lead">Quyết định 2439/QĐ-TTg ban hành "bộ ba" nền tảng kỹ thuật–thể chế: Khung kiến trúc dữ liệu quốc gia, Khung quản trị/quản lý dữ liệu quốc gia, và Từ điển dữ liệu dùng chung — hiện thực hoá các nghĩa vụ do Luật Dữ liệu và Nghị định 278/2025/NĐ-CP đặt ra, xoay quanh Trung tâm dữ liệu quốc gia và Nền tảng chia sẻ, điều phối dữ liệu (NDOP).</p>
+    </div>
+
+    <div class="diagram-box">
+      <img src="assets/khung-kien-truc-du-lieu-quoc-gia.webp" alt="Sơ đồ tổng quát Khung kiến trúc dữ liệu quốc gia" loading="lazy">
+      <div class="cap">Sơ đồ tổng quát Khung kiến trúc dữ liệu quốc gia — nguồn: FoxAI, tổng hợp từ Quyết định 2439/QĐ-TTg</div>
+    </div>
+
+    <div class="section-title"><h3>Danh sách văn bản</h3></div>
+    <div class="doc-list" id="cat-khungkientruc"></div>
+  </section>
+
+  <!-- ===================== TAB: HÀ NỘI ===================== -->
+  <section class="tab-panel" id="panel-hanoi">
+    <div class="hero">
+      <span class="chip">🏙️ Thí điểm địa phương</span>
+      <h2>Quy định của UBND Thành phố Hà Nội</h2>
+      <p class="lead">Tận dụng cơ chế đặc thù của <b>Luật Thủ đô 02/2026/QH16</b>, Hà Nội là địa phương đi đầu ban hành các quy định thí điểm cụ thể về hành chính số, quản lý rủi ro AI trong quản lý nhà nước, và cơ chế chia sẻ dữ liệu công–tư theo hợp đồng — nhiều nội dung chi tiết hơn khung pháp luật quốc gia.</p>
+    </div>
+    <div class="section-title"><h3>Danh sách văn bản</h3></div>
+    <div class="doc-list" id="cat-hanoi"></div>
+  </section>
+
+  <!-- ===================== TAB: TỪ ĐIỂN ===================== -->
+  <section class="tab-panel" id="panel-tudien">
+    <div class="hero">
+      <span class="chip">📖 Tra cứu thuật ngữ</span>
+      <h2>Từ điển thuật ngữ dữ liệu &amp; AI</h2>
+      <p class="lead">Các khái niệm được giải nghĩa trực tiếp theo Điều 3 Luật Dữ liệu số 60/2024/QH15 và các văn bản hướng dẫn liên quan (Nghị định 194, 278, Quyết định 2439…).</p>
+    </div>
+    <div class="glossary-grid" id="glossary-grid"></div>
+  </section>
+
+  <!-- ===================== TAB: TẤT CẢ ===================== -->
+  <section class="tab-panel" id="panel-tatca">
+    <div class="hero">
+      <span class="chip">🗂️ Đầy đủ</span>
+      <h2>Toàn bộ văn bản đã hệ thống hoá</h2>
+      <p class="lead">Danh sách đầy đủ tất cả văn bản trong cẩm nang này, không phân nhóm — dùng để rà soát tổng thể hoặc đối chiếu chéo giữa các văn bản.</p>
+    </div>
+    <div class="doc-list" id="cat-tatca"></div>
+  </section>
+
+</main>
+
+<footer>
+  Trang tổng hợp nội bộ của Công ty CP Công nghệ FoxAI — mang tính tham khảo, được xử lý từ các file văn bản gốc lưu tại thư mục
+  <a href="https://github.com/hoanglong8/FOXAI-Data/tree/main/Quy%20%C4%91%E1%BB%8Bnh%20ph%C3%A1p%20lu%E1%BA%ADt%20VN%20v%E1%BB%81%20d%E1%BB%AF%20li%E1%BB%87u%20v%C3%A0%20AI" target="_blank" rel="noopener">Quy định pháp luật VN về dữ liệu và AI</a>.
+  Không thay thế văn bản pháp luật gốc hoặc tư vấn pháp lý chính thức.
+</footer>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+<script>
+  document.getElementById("stat-total").textContent = DOCS.length;
+  document.getElementById("stat-nd").textContent = DOCS.filter(d => d.type === "nghidinh").length;
+  document.getElementById("stat-hn").textContent = DOCS.filter(d => d.category === "hanoi").length;
+  document.getElementById("stat-terms").textContent = TERMS.length;
+</script>
+</body>
+</html>
