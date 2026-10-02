@@ -34,6 +34,7 @@ const DOCS = [
     che_tai: "Luật không quy định mức xử phạt cụ thể, chỉ nêu nguyên tắc quản lý nhà nước (thanh tra, kiểm tra, xử lý vi phạm theo Điều 8) — mức phạt cụ thể được giao cho Chính phủ quy định chi tiết ở các Nghị định.",
     source_name: "Luật Dữ liệu số 60.pdf",
     source_path: SRC_DIR + "/Lu%E1%BA%ADt%20D%E1%BB%AF%20li%E1%BB%87u%20s%E1%BB%91%2060.pdf",
+    official_url: "https://vbpl.vn/van-ban/chi-tiet/luat-du-lieu-so-60-2024-qh15--174877",
   },
   {
     id: "luat-giao-dich-dien-tu-2023",
@@ -58,6 +59,7 @@ const DOCS = [
     che_tai: "Không quy định chế tài trực tiếp trong các điều khoản về dữ liệu; việc xử lý vi phạm giao dịch điện tử nói chung dẫn chiếu các văn bản pháp luật chuyên ngành khác.",
     source_name: "Luật Giao dịch điện tử 2023 về CSDL quốc gia...pdf",
     source_path: SRC_DIR + "/Lu%E1%BA%ADt%20Giao%20d%E1%BB%8Bch%20%C4%91i%E1%BB%87n%20t%E1%BB%AD%202023%20v%E1%BB%81%20CSDL%20qu%E1%BB%91c%20gia%20k%E1%BA%BFt%20n%E1%BB%91i%20chia%20s%E1%BA%BB%20d%E1%BB%AF%20li%E1%BB%87u%20v%C3%A0%20d%E1%BB%AF%20li%E1%BB%87u%20m%E1%BB%9F%20c%E1%BB%A7a%20c%C6%A1%20quan%20nh%C3%A0%20n%C6%B0%E1%BB%9Bc.pdf",
+    official_url: "https://vbpl.vn/van-ban/chi-tiet/luat-giao-dich-dien-tu-so-20-2023-qh15--165913",
   },
 
   // ============ NGHỊ ĐỊNH ============
@@ -86,6 +88,7 @@ const DOCS = [
     che_tai: "Không quy định mức xử phạt cụ thể; chỉ yêu cầu cơ quan nhà nước thông báo về các chế tài sẽ áp dụng khi tổ chức/cá nhân không cung cấp dữ liệu theo yêu cầu (Điều 8.2.b), dẫn chiếu các văn bản khác về xử phạt.",
     source_name: "Nghị định 165.pdf",
     source_path: SRC_DIR + "/Ngh%E1%BB%8B%20%C4%91%E1%BB%8Bnh%20165.pdf",
+    official_url: "https://vbpl.vn/van-ban/chi-tiet/nghi-dinh-so-165-2025-nd-cp-quy-dinh-chi-tiet-mot-so-dieu-va-bien-phap-thi-hanh-luat-du-lieu--179108",
   },
   {
     id: "nd-194-2025",
@@ -112,6 +115,7 @@ const DOCS = [
     che_tai: "Không quy định chế tài trực tiếp trong Nghị định; Điều 11.3 chỉ yêu cầu Quy chế khai thác nội bộ của mỗi cơ quan chủ quản CSDL quốc gia phải có nội dung \"chế tài xử lý vi phạm Quy chế\" — đây là chế tài hành chính nội bộ do từng cơ quan tự quy định.",
     source_name: "Nghị định 194.pdf",
     source_path: SRC_DIR + "/Ngh%E1%BB%8B%20%C4%91%E1%BB%8Bnh%20194.pdf",
+    official_url: "https://vbpl.vn/van-ban/chi-tiet/nghi-dinh-so-194-2025-nd-cp-quy-dinh-chi-tiet-mot-so-dieu-cua-luat-giao-dich-dien-tu-ve-co-so-du-lieu-quoc-gia-ket-noi-va-chia-se-du-lieu-du-lieu-mo-phuc-vu-giao-dich-dien-tu-cua-co-quan-nha-nuoc--179830",
   },
   {
     id: "nd-278-2025",
@@ -140,6 +144,7 @@ const DOCS = [
     che_tai: "Không quy định mức xử phạt cụ thể; chỉ có cơ chế giám sát, kiểm tra và \"đề xuất hình thức xử lý\" với trường hợp không kết nối/chia sẻ dữ liệu đúng hạn (Điều 13, 20, 22) — dẫn chiếu pháp luật khác về dữ liệu, an ninh mạng.",
     source_name: "Nghị định 278.pdf",
     source_path: SRC_DIR + "/Ngh%E1%BB%8B%20%C4%91%E1%BB%8Bnh%20278.pdf",
+    official_url: "https://vbpl.vn/van-ban/chi-tiet/nghi-dinh-so-278-2025-nd-cp-quy-dinh-ve-ket-noi-chia-se-du-lieu-bat-buoc-giua-cac-co-quan-thuoc-he-thong-chinh-tri--183655",
   },
   {
     id: "nd-326-2026",
@@ -166,6 +171,7 @@ const DOCS = [
     che_tai: "Không quy định mức xử phạt hành chính cụ thể; Bộ Công an chịu trách nhiệm giải quyết khiếu nại, tố cáo, hướng dẫn về định danh địa điểm (Điều 9.7).",
     source_name: "Nghị định 326.pdf",
     source_path: SRC_DIR + "/Ngh%E1%BB%8B%20%C4%91%E1%BB%8Bnh%20326.pdf",
+    official_url: "https://congbao.chinhphu.vn/tim-kiem-van-ban.htm?keyword=326%2F2026%2FN%C4%90-CP",
   },
   {
     id: "nd-70-2024",
@@ -192,6 +198,7 @@ const DOCS = [
     che_tai: "Không quy định mức phạt hành chính trực tiếp; chỉ quy định cơ chế thu hồi/hủy thẻ căn cước, giấy chứng nhận, số định danh cá nhân khi cấp sai hoặc theo quyết định cơ quan có thẩm quyền (Điều 22, 25, 32-34).",
     source_name: "Nghị định 70-2024 hướng dẫn thi hành luật căn cước 2023.pdf",
     source_path: SRC_DIR + "/Ngh%E1%BB%8B%20%C4%91%E1%BB%8Bnh%2070-2024%20h%C6%B0%E1%BB%9Bng%20d%E1%BA%ABn%20thi%20h%C3%A0nh%20lu%E1%BA%ADt%20c%C4%83n%20c%C6%B0%E1%BB%9Bc%202023.pdf",
+    official_url: "https://vbpl.vn/van-ban/chi-tiet/nghi-dinh-so-70-2024-nd-cp-quy-dinh-chi-tiet-mot-so-dieu-va-bien-phap-thi-hanh-luat-can-cuoc--168344",
   },
   {
     id: "nd-169-2025",
@@ -220,6 +227,7 @@ const DOCS = [
     che_tai: "Không quy định mức phạt tiền trực tiếp; chế tài chủ yếu dưới dạng thu hồi giấy phép: thu hồi Giấy chứng nhận tham gia sandbox khi không đáp ứng điều kiện hoặc không triển khai sau 90 ngày (Điều 15); thu hồi Giấy chứng nhận kinh doanh khi ngừng hoạt động ≥6 tháng hoặc không khắc phục vi phạm về bảo vệ dữ liệu/an ninh mạng (Điều 39).",
     source_name: "Nghị định 169-2025-ND-CP hoạt động KHCN đổi mới sáng tạo và sản phẩm dịch vụ dữ liệu.pdf",
     source_path: SRC_DIR + "/Nghi%20dinh%20169-2025-ND-CP%20hoat%20dong%20KHCN%20doi%20moi%20sang%20tao%20va%20san%20pham%20dich%20vu%20du%20lieu.pdf",
+    official_url: "https://vbpl.vn/van-ban/chi-tiet/nghi-dinh-so-169-2025-nd-cp-quy-dinh-hoat-dong-khoa-hoc-cong-nghe-doi-moi-sang-tao-va-san-pham-dich-vu-ve-du-lieu--179109",
   },
   {
     id: "luat-bvdlcn-91-2025",
@@ -249,6 +257,7 @@ const DOCS = [
     che_tai: "Mua/bán dữ liệu cá nhân trái phép: phạt tối đa <b>10 lần khoản thu lợi bất chính</b>; vi phạm chuyển dữ liệu xuyên biên giới: phạt tối đa <b>5% doanh thu năm liền kề</b>; các vi phạm khác: phạt tối đa <b>3 tỷ đồng</b> (Điều 8). Cá nhân vi phạm cùng hành vi: mức phạt tối đa bằng 1/2 mức phạt tổ chức.",
     source_name: "Luật Bảo vệ dữ liệu cá nhân 91-2025-QH15.pdf",
     source_path: SRC_DIR + "/Luat%20Bao%20ve%20du%20lieu%20ca%20nhan%2091-2025-QH15.pdf",
+    official_url: "https://vbpl.vn/van-ban/chi-tiet/luat-bao-ve-du-lieu-ca-nhan-so-91-2025-qh15--179252",
   },
   {
     id: "nd-356-2025",
@@ -277,6 +286,7 @@ const DOCS = [
     che_tai: "Không quy định mức phạt riêng (dẫn chiếu Điều 8 Luật 91/2025: tối đa 10 lần khoản thu lợi bất chính, 5% doanh thu, hoặc 3 tỷ đồng); chế tài trong Nghị định là thu hồi Giấy chứng nhận kinh doanh dịch vụ xử lý dữ liệu khi không khắc phục vi phạm (Điều 27) hoặc yêu cầu ngừng chuyển dữ liệu xuyên biên giới gây tổn hại an ninh quốc gia (Điều 17.2).",
     source_name: "Nghị định 356-2025-ND-CP hướng dẫn Luật Bảo vệ dữ liệu cá nhân.pdf",
     source_path: SRC_DIR + "/Nghi%20dinh%20356-2025-ND-CP%20huong%20dan%20Luat%20Bao%20ve%20du%20lieu%20ca%20nhan.pdf",
+    official_url: "https://vbpl.vn/van-ban/chi-tiet/nghi-dinh-so-356-2025-nd-cp-quy-dinh-chi-tiet-mot-so-dieu-va-bien-phap-thi-hanh-luat-bao-ve-du-lieu-ca-nhan--187276",
   },
   {
     id: "luat-ai-134-2025",
@@ -306,6 +316,7 @@ const DOCS = [
     che_tai: "Tuỳ tính chất, mức độ: xử phạt vi phạm hành chính hoặc truy cứu trách nhiệm hình sự, và bồi thường thiệt hại dân sự (Điều 29). Đáng chú ý: bên triển khai hệ thống AI rủi ro cao phải bồi thường thiệt hại cho người bị hại <b>ngay cả khi vận hành đúng quy định</b> (trừ lỗi cố ý của người bị hại hoặc bất khả kháng); nếu bên thứ ba chiếm quyền điều khiển hệ thống thì bên đó chịu trách nhiệm bồi thường.",
     source_name: "Luật Trí tuệ nhân tạo 134-2025-QH15.pdf",
     source_path: SRC_DIR + "/Luat%20Tri%20tue%20nhan%20tao%20134-2025-QH15.pdf",
+    official_url: "https://vbpl.vn/van-ban/chi-tiet/luat-tri-tue-nhan-tao-so-134-2025-qh15--69ba65c0-8a56-11f1-878c-399a87bcb3eb",
   },
   {
     id: "nd-142-2026",
@@ -333,6 +344,7 @@ const DOCS = [
     che_tai: "Mang tính thủ tục/triển khai, không quy định trực tiếp mức phạt hành chính (Luật giao Chính phủ ban hành văn bản riêng). Cơ chế thực thi: tạm dừng/thu hồi hoặc đánh giá lại hệ thống khi phát hiện sai lệch, khai báo không trung thực (Điều 15, 19); hoàn trả toàn bộ giá trị hỗ trợ nếu gian lận Phiếu hỗ trợ AI (Điều 40.10); thu hồi Giấy xác nhận tham gia sandbox nếu vi phạm giới hạn thử nghiệm (Điều 25.1.c).",
     source_name: "Nghị định 142-2026-ND-CP hướng dẫn Luật Trí tuệ nhân tạo.pdf",
     source_path: SRC_DIR + "/Nghi%20dinh%20142-2026-ND-CP%20huong%20dan%20Luat%20Tri%20tue%20nhan%20tao.pdf",
+    official_url: "https://congbao.chinhphu.vn/tim-kiem-van-ban.htm?keyword=142%2F2026%2FN%C4%90-CP",
   },
 
   // ============ KHUNG KIẾN TRÚC DỮ LIỆU QUỐC GIA ============
@@ -363,6 +375,7 @@ const DOCS = [
     che_tai: "Không áp dụng khái niệm chế tài — đây là văn bản kỹ thuật/khung tham chiếu; việc tuân thủ được giám sát qua cơ chế kiểm toán/xếp hạng dữ liệu quy định tại Nghị định 278/2025/NĐ-CP.",
     source_name: "Quyết định số 2439-QĐ-TTg.pdf",
     source_path: SRC_DIR + "/Quy%E1%BA%BFt%20%C4%91%E1%BB%8Bnh%20s%E1%BB%91%202439-Q%C4%90-TTg.pdf",
+    official_url: "https://congbao.chinhphu.vn/tim-kiem-van-ban.htm?keyword=2439%2FQ%C4%90-TTg",
   },
   {
     id: "qd-11-2026",
@@ -387,6 +400,7 @@ const DOCS = [
     che_tai: "Không quy định chế tài; là văn bản hành chính ban hành danh mục, việc tuân thủ gắn với nghĩa vụ kết nối bắt buộc và cơ chế xếp hạng tại Nghị định 278/2025/NĐ-CP.",
     source_name: "QĐ 11-2026 về danh mục dữ liệu quốc gia.pdf",
     source_path: SRC_DIR + "/Q%C4%90%2011-2026%20v%E1%BB%81%20danh%20m%E1%BB%A5c%20d%E1%BB%AF%20li%E1%BB%87u%20qu%E1%BB%91c%20gia.pdf",
+    official_url: "https://vbpl.vn/van-ban/chi-tiet/quyet-dinh-so-11-2026-qd-ttg-ban-hanh-danh-muc-co-so-du-lieu-quoc-gia--dcd28ee0-870c-11f1-93c0-4daee49a7397",
   },
 
   // ============ HÀ NỘI ============
@@ -415,6 +429,7 @@ const DOCS = [
     che_tai: "UBND Thành phố kiểm tra, giám sát định kỳ/đột xuất qua dữ liệu hệ thống; kết quả là căn cứ đánh giá hoàn thành nhiệm vụ, xếp loại thi đua; người đứng đầu chịu trách nhiệm trực tiếp nếu để xảy ra tình trạng không triển khai hoặc triển khai hình thức (Điều 14.6).",
     source_name: "Quyết định 98_2026_QĐ-UBND Hà Nội...pdf",
     source_path: SRC_DIR + "/Quy%E1%BA%BFt%20%C4%91%E1%BB%8Bnh%2098_2026_Q%C4%90-UBND%20H%C3%A0%20N%E1%BB%99i%20Quy%20%C4%91%E1%BB%8Bnh%20ch%C3%ADnh%20s%C3%A1ch%2C%20bi%E1%BB%87n%20ph%C3%A1p%20th%E1%BB%B1c%20hi%E1%BB%87n%20n%E1%BB%81n%20h%C3%A0nh%20ch%C3%ADnh%20s%E1%BB%91.pdf",
+    official_url: "https://vbpl.vn/van-ban/chi-tiet/quyet-dinh-so-98-2026-qd-ubnd-ban-hanh-quy-dinh-chinh-sach-bien-phap-to-chuc-thuc-hien-nen-hanh-chinh-so-va-cong-vu-so-tren-dia-ban-thanh-pho-ha-noi--4df397c0-8417-11f1-b0de-5115cbd02105",
   },
   {
     id: "qd-102-2026-ubnd-hn",
@@ -442,6 +457,7 @@ const DOCS = [
     che_tai: "Trách nhiệm giải trình 3 bên rõ ràng: chủ quản hệ thống chịu trách nhiệm trước UBND TP; nhà cung cấp công nghệ bồi thường thiệt hại/liên đới trách nhiệm nếu lỗi mã nguồn/lỗ hổng (Điều 10.4); Giám đốc, thủ trưởng cơ quan chịu trách nhiệm trước Chủ tịch UBND TP nếu để lộ bí mật nhà nước, mất an ninh mạng gây hậu quả nghiêm trọng (Điều 16.4.a).",
     source_name: "Quyết định 102_2026_QĐ-UBND Hà Nội...pdf",
     source_path: SRC_DIR + "/Quy%E1%BA%BFt%20%C4%91%E1%BB%8Bnh%20102_2026_Q%C4%90-UBND%20H%C3%A0%20N%E1%BB%99i%20Quy%20%C4%91%E1%BB%8Bnh%20an%20to%C3%A0n%2C%20qu%E1%BA%A3n%20l%C3%BD%20r%E1%BB%A7i%20ro%20v%C3%A0%20%E1%BB%A9ng%20d%E1%BB%A5ng%20AI%20trong%20qu%E1%BA%A3n%20l%C3%BD%20Nh%C3%A0%20n%C6%B0%E1%BB%9Bc.pdf",
+    official_url: "https://vbpl.vn/van-ban/chi-tiet/quyet-dinh-so-102-2026-qd-ubnd-ban-hanh-quy-dinh-ve-bao-dam-an-toan-quan-ly-rui-ro-va-bien-phap-ung-dung-tri-tue-nhan-tao-trong-quan-ly-nha-nuoc-tren-dia-ban-thanh-pho-ha-noi--b3cfad60-8c8f-11f1-8270-af76511031f5",
   },
   {
     id: "qd-103-2026-ubnd-hn",
@@ -468,6 +484,7 @@ const DOCS = [
     che_tai: "Người đứng đầu để xảy ra vi phạm hành vi nghiêm cấm chịu trách nhiệm trực tiếp trước UBND Thành phố, tuỳ mức độ có thể bị xử lý kỷ luật, xử phạt hành chính hoặc truy cứu trách nhiệm hình sự (Điều 6.12); vi phạm hợp đồng chia sẻ dữ liệu phải dừng ngay hoạt động, khắc phục và báo cáo cơ quan có thẩm quyền (Điều 28).",
     source_name: "Quyết định 103_2026_QĐ-UBND Hà Nội...pdf",
     source_path: SRC_DIR + "/Quy%E1%BA%BFt%20%C4%91%E1%BB%8Bnh%20103_2026_Q%C4%90-UBND%20H%C3%A0%20N%E1%BB%99i%20qu%E1%BA%A3n%20tr%E1%BB%8B%20ti%C3%AAn%20ti%E1%BA%BFn%20d%E1%BB%AF%20li%E1%BB%87u%20s%E1%BB%91%2C%20c%C3%B4ng%20ngh%E1%BB%87%20s%E1%BB%91%2C%20AI.pdf",
+    official_url: "https://vbpl.vn/van-ban/chi-tiet/quyet-dinh-so-103-2026-qd-ubnd-quy-dinh-phuong-thuc-quan-tri-tien-tien-dua-tren-du-lieu-so-ung-dung-cong-nghe-so-tri-tue-nhan-tao-va-co-che-chia-se-du-lieu-cong-tu-theo-hop-dong-khai-thac-du-lieu-tren-dia-ban-thanh-pho-ha-noi--6e8141a0-8c90-11f1-8362-e1a01a32eda5",
   },
   {
     id: "kh-220-ubnd-hn",
@@ -493,6 +510,7 @@ const DOCS = [
     che_tai: "Là văn bản kế hoạch hành chính, không quy định chế tài; việc thực hiện gắn với các mốc thời gian cụ thể và bộ chỉ tiêu tại phụ lục, do UBND Thành phố theo dõi, đôn đốc.",
     source_name: "Kế hoạch số 220-KH-UBND về Kho dữ liệu dùng chung TP Hà Nội.pdf",
     source_path: SRC_DIR + "/K%E1%BA%BF%20ho%E1%BA%A1ch%20s%E1%BB%91%20220-KH-UBND%20v%E1%BB%81%20Kho%20d%E1%BB%AF%20li%E1%BB%87u%20d%C3%B9ng%20chung%20Th%C3%A0nh%20ph%E1%BB%91%20H%C3%A0%20N%E1%BB%99i.pdf",
+    official_url: "https://vanban.hanoi.gov.vn/van-ban-chi-dao-dieu-hanh/ke-hoach-to-chuc-tich-hop-di-tru-va-chuan-hoa-du-lieu-ve-kho-du-lieu-dung-chung-thanh-pho-ha-noi-253686",
   },
 
   // ============ NGHIÊN CỨU NỘI BỘ ============

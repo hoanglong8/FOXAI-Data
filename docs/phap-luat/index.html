@@ -27,10 +27,15 @@
       </div>
     </div>
     <div class="header-actions">
-      <a class="btn" href="https://github.com/hoanglong8/FOXAI-Data/tree/main/Quy%20%C4%91%E1%BB%8Bnh%20ph%C3%A1p%20lu%E1%BA%ADt%20VN%20v%E1%BB%81%20d%E1%BB%AF%20li%E1%BB%87u%20v%C3%A0%20AI" target="_blank" rel="noopener">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.5 2.87 8.32 6.84 9.67.5.1.68-.22.68-.48 0-.24-.01-1.02-.01-1.85-2.79.51-3.52-.68-3.75-1.31-.13-.32-.68-1.31-1.16-1.58-.4-.21-.97-.74-.01-.75.9-.01 1.55.83 1.76 1.18 1.03 1.72 2.67 1.24 3.32.94.1-.74.4-1.24.73-1.53-2.5-.28-5.12-1.24-5.12-5.53 0-1.22.44-2.22 1.16-3-.12-.28-.5-1.42.11-2.96 0 0 .95-.3 3.1 1.13.9-.25 1.86-.37 2.82-.37s1.92.13 2.82.37c2.15-1.44 3.1-1.13 3.1-1.13.61 1.54.23 2.68.11 2.96.72.78 1.16 1.77 1.16 3 0 4.3-2.63 5.25-5.14 5.53.41.35.76 1.04.76 2.1 0 1.52-.01 2.74-.01 3.12 0 .26.18.58.68.48A10.02 10.02 0 0022 12.25C22 6.58 17.52 2 12 2z"/></svg>
-        Nguồn văn bản gốc
-      </a>
+      <div class="theme-switch" role="group" aria-label="Chọn giao diện sáng/tối">
+        <button class="theme-btn" data-theme-choice="light" type="button" title="Giao diện sáng">☀️</button>
+        <button class="theme-btn" data-theme-choice="dark" type="button" title="Giao diện tối">🌙</button>
+        <button class="theme-btn" data-theme-choice="system" type="button" title="Theo cấu hình máy">🖥️</button>
+      </div>
+      <button class="btn" type="button" id="btn-ai-assistant">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a7 7 0 00-7 7v3l-2 4h18l-2-4v-3a7 7 0 00-7-7z"/><path d="M9.5 21a2.5 2.5 0 005 0"/></svg>
+        Trợ lý AI
+      </button>
       <a class="btn btn-accent" href="#" id="btn-glossary-shortcut" onclick="showTab('tudien');return false;">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>
         Từ điển thuật ngữ
@@ -169,6 +174,45 @@
   <a href="https://github.com/hoanglong8/FOXAI-Data/tree/main/Quy%20%C4%91%E1%BB%8Bnh%20ph%C3%A1p%20lu%E1%BA%ADt%20VN%20v%E1%BB%81%20d%E1%BB%AF%20li%E1%BB%87u%20v%C3%A0%20AI" target="_blank" rel="noopener">Quy định pháp luật VN về dữ liệu và AI</a>.
   Không thay thế văn bản pháp luật gốc hoặc tư vấn pháp lý chính thức.
 </footer>
+
+<div id="ai-modal" class="ai-modal">
+  <div class="ai-panel">
+    <div class="ai-panel-head">
+      <div class="ai-panel-title">🤖 Trợ lý AI — hỏi đáp về pháp luật dữ liệu &amp; AI</div>
+      <button class="ai-close" id="ai-modal-close" type="button" aria-label="Đóng">✕</button>
+    </div>
+    <div class="ai-panel-note">
+      Bạn tự nhập API key của riêng mình (OpenAI / Anthropic / Google Gemini). Key chỉ được lưu trong trình duyệt của bạn (localStorage) và gửi trực tiếp từ trình duyệt đến nhà cung cấp AI tương ứng — FoxAI không lưu trữ hay nhìn thấy key này. Câu trả lời của AI chỉ mang tính tham khảo, không thay thế văn bản gốc hoặc tư vấn pháp lý chính thức.
+    </div>
+    <div class="ai-settings">
+      <div class="ai-field">
+        <label for="ai-provider">Nhà cung cấp</label>
+        <select id="ai-provider">
+          <option value="openai">OpenAI</option>
+          <option value="anthropic">Anthropic (Claude)</option>
+          <option value="gemini">Google Gemini</option>
+        </select>
+      </div>
+      <div class="ai-field">
+        <label for="ai-model">Model</label>
+        <input id="ai-model" type="text" placeholder="gpt-4o-mini">
+      </div>
+      <div class="ai-field ai-field-key">
+        <label for="ai-key">API key</label>
+        <input id="ai-key" type="password" placeholder="sk-...">
+      </div>
+    </div>
+    <div class="ai-messages" id="ai-messages"></div>
+    <div class="ai-status" id="ai-status"></div>
+    <div class="ai-input-row">
+      <textarea id="ai-input" rows="2" placeholder="Hỏi về Luật Dữ liệu, Luật AI, Luật Bảo vệ dữ liệu cá nhân…"></textarea>
+      <div class="ai-input-actions">
+        <button class="btn" id="ai-clear" type="button">Xoá hội thoại</button>
+        <button class="btn btn-accent" id="ai-send" type="button">Gửi</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 <script src="data.js"></script>
 <script src="app.js"></script>

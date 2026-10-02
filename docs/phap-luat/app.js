@@ -55,10 +55,16 @@ function renderDocCard(doc) {
       ${renderList("Nội dung chính", doc.noi_dung)}
       ${doc.diem_dang_chu_y ? `<div class="note-box">💡 <b>Điểm đáng chú ý:</b> ${doc.diem_dang_chu_y}</div>` : ""}
       ${doc.che_tai ? `<div class="note-box red">⚖️ <b>Chế tài / trách nhiệm:</b> ${doc.che_tai}</div>` : ""}
-      <a class="source-link" href="https://github.com/hoanglong8/FOXAI-Data/blob/main/${doc.source_path}" target="_blank" rel="noopener">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/></svg>
-        Xem văn bản gốc trên GitHub: ${escapeHtml(doc.source_name)}
-      </a>
+      <div class="source-links">
+        ${doc.official_url ? `<a class="source-link official" href="${escapeHtml(doc.official_url)}" target="_blank" rel="noopener">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+          Xem văn bản gốc chính thức (${escapeHtml(doc.official_url.includes("vanban.hanoi.gov.vn") ? "Cổng TTĐT TP Hà Nội" : doc.official_url.includes("congbao.chinhphu.vn") ? "Công báo Chính phủ — tìm kiếm" : "CSDL quốc gia về pháp luật")})
+        </a>` : `<div class="source-note">ℹ️ Tài liệu nghiên cứu nội bộ, không phải văn bản pháp luật — không có nguồn phát hành chính thức.</div>`}
+        <a class="source-link" href="https://github.com/hoanglong8/FOXAI-Data/blob/main/${doc.source_path}" target="_blank" rel="noopener">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/></svg>
+          Bản PDF đã xử lý (lưu trên GitHub): ${escapeHtml(doc.source_name)}
+        </a>
+      </div>
     </div>
   </div>`;
 }
@@ -175,6 +181,197 @@ function doSearch(q) {
   // re-bind onclick handlers work automatically since we use inline onclick in renderDocCard
 }
 
+// ------- Theme (light / dark / system) -------
+const THEME_KEY = "foxai-theme-pref";
+const systemDarkMql = window.matchMedia("(prefers-color-scheme: dark)");
+
+function effectiveTheme(pref) {
+  if (pref === "system") return systemDarkMql.matches ? "dark" : "light";
+  return pref;
+}
+
+function applyTheme(pref) {
+  document.documentElement.setAttribute("data-theme", effectiveTheme(pref));
+  document.querySelectorAll(".theme-btn").forEach((b) => {
+    b.classList.toggle("active", b.dataset.themeChoice === pref);
+  });
+}
+
+function setTheme(pref) {
+  localStorage.setItem(THEME_KEY, pref);
+  applyTheme(pref);
+}
+
+function initTheme() {
+  const saved = localStorage.getItem(THEME_KEY) || "dark";
+  applyTheme(saved);
+  document.querySelectorAll(".theme-btn").forEach((b) => {
+    b.addEventListener("click", () => setTheme(b.dataset.themeChoice));
+  });
+  systemDarkMql.addEventListener("change", () => {
+    const current = localStorage.getItem(THEME_KEY) || "dark";
+    if (current === "system") applyTheme("system");
+  });
+}
+
+// ------- Trợ lý AI (BYOK — khoá API do người dùng tự nhập, lưu & gửi trực tiếp từ trình duyệt) -------
+const AI_KEYS = {
+  provider: "foxai-ai-provider",
+  apiKey: "foxai-ai-key",
+  model: "foxai-ai-model",
+};
+const AI_DEFAULT_MODEL = {
+  openai: "gpt-4o-mini",
+  anthropic: "claude-sonnet-4-5",
+  gemini: "gemini-2.0-flash",
+};
+let aiChatHistory = [];
+
+function aiSystemPrompt() {
+  const list = DOCS.map((d) => `- ${d.so_hieu}: ${d.ten_tat}`).join("\n");
+  return `Bạn là trợ lý tra cứu pháp luật Việt Nam về dữ liệu số và trí tuệ nhân tạo, phục vụ người dùng trang "Cẩm nang Pháp luật Dữ liệu & AI Việt Nam" của FoxAI. Trả lời ngắn gọn, chính xác, bằng tiếng Việt, và luôn nhắc người dùng đối chiếu văn bản gốc khi cần áp dụng thực tế vì nội dung trang chỉ mang tính tham khảo. Danh sách văn bản đã được hệ thống hoá trên trang:\n${list}`;
+}
+
+function aiRenderMessages() {
+  const el = document.getElementById("ai-messages");
+  if (!el) return;
+  el.innerHTML = aiChatHistory
+    .map(
+      (m) =>
+        `<div class="ai-msg ${m.role}"><div class="ai-bubble">${escapeHtml(m.content).replace(/\n/g, "<br>")}</div></div>`
+    )
+    .join("");
+  el.scrollTop = el.scrollHeight;
+}
+
+function aiSetStatus(text, isError) {
+  const el = document.getElementById("ai-status");
+  if (!el) return;
+  el.textContent = text || "";
+  el.classList.toggle("error", !!isError);
+}
+
+async function aiCallOpenAI(apiKey, model, messages) {
+  const res = await fetch("https://api.openai.com/v1/chat/completions", {
+    method: "POST",
+    headers: { "Content-Type": "application/json", Authorization: "Bearer " + apiKey },
+    body: JSON.stringify({ model, messages, temperature: 0.3 }),
+  });
+  if (!res.ok) throw new Error((await res.text()).slice(0, 300));
+  const data = await res.json();
+  return data.choices[0].message.content;
+}
+
+async function aiCallAnthropic(apiKey, model, system, history) {
+  const res = await fetch("https://api.anthropic.com/v1/messages", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "x-api-key": apiKey,
+      "anthropic-version": "2023-06-01",
+      "anthropic-dangerous-direct-browser-access": "true",
+    },
+    body: JSON.stringify({ model, max_tokens: 1024, system, messages: history }),
+  });
+  if (!res.ok) throw new Error((await res.text()).slice(0, 300));
+  const data = await res.json();
+  return data.content.map((c) => c.text || "").join("");
+}
+
+async function aiCallGemini(apiKey, model, system, history) {
+  const contents = history.map((m) => ({
+    role: m.role === "assistant" ? "model" : "user",
+    parts: [{ text: m.content }],
+  }));
+  const res = await fetch(
+    `https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(model)}:generateContent?key=${encodeURIComponent(apiKey)}`,
+    {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ contents, systemInstruction: { parts: [{ text: system }] } }),
+    }
+  );
+  if (!res.ok) throw new Error((await res.text()).slice(0, 300));
+  const data = await res.json();
+  return data.candidates[0].content.parts.map((p) => p.text || "").join("");
+}
+
+async function aiSend() {
+  const input = document.getElementById("ai-input");
+  const text = input.value.trim();
+  if (!text) return;
+  const provider = document.getElementById("ai-provider").value;
+  const apiKey = document.getElementById("ai-key").value.trim();
+  const model = document.getElementById("ai-model").value.trim() || AI_DEFAULT_MODEL[provider];
+  if (!apiKey) {
+    aiSetStatus("Vui lòng nhập API key trước khi hỏi.", true);
+    return;
+  }
+  aiChatHistory.push({ role: "user", content: text });
+  aiRenderMessages();
+  input.value = "";
+  aiSetStatus("Đang hỏi " + provider + "…");
+  try {
+    let reply;
+    if (provider === "openai") {
+      reply = await aiCallOpenAI(apiKey, model, [{ role: "system", content: aiSystemPrompt() }, ...aiChatHistory]);
+    } else if (provider === "anthropic") {
+      reply = await aiCallAnthropic(apiKey, model, aiSystemPrompt(), aiChatHistory);
+    } else {
+      reply = await aiCallGemini(apiKey, model, aiSystemPrompt(), aiChatHistory);
+    }
+    aiChatHistory.push({ role: "assistant", content: reply });
+    aiRenderMessages();
+    aiSetStatus("");
+  } catch (err) {
+    aiSetStatus("Lỗi khi gọi API: " + err.message, true);
+  }
+}
+
+function aiOpenModal() {
+  document.getElementById("ai-modal").classList.add("open");
+}
+function aiCloseModal() {
+  document.getElementById("ai-modal").classList.remove("open");
+}
+
+function initAIAssistant() {
+  const providerEl = document.getElementById("ai-provider");
+  const keyEl = document.getElementById("ai-key");
+  const modelEl = document.getElementById("ai-model");
+
+  providerEl.value = localStorage.getItem(AI_KEYS.provider) || "openai";
+  keyEl.value = localStorage.getItem(AI_KEYS.apiKey) || "";
+  modelEl.value = localStorage.getItem(AI_KEYS.model) || AI_DEFAULT_MODEL[providerEl.value];
+  modelEl.placeholder = AI_DEFAULT_MODEL[providerEl.value];
+
+  providerEl.addEventListener("change", () => {
+    modelEl.placeholder = AI_DEFAULT_MODEL[providerEl.value];
+    if (!modelEl.value) modelEl.value = AI_DEFAULT_MODEL[providerEl.value];
+    localStorage.setItem(AI_KEYS.provider, providerEl.value);
+  });
+  keyEl.addEventListener("change", () => localStorage.setItem(AI_KEYS.apiKey, keyEl.value.trim()));
+  modelEl.addEventListener("change", () => localStorage.setItem(AI_KEYS.model, modelEl.value.trim()));
+
+  document.getElementById("btn-ai-assistant").addEventListener("click", aiOpenModal);
+  document.getElementById("ai-modal-close").addEventListener("click", aiCloseModal);
+  document.getElementById("ai-modal").addEventListener("click", (e) => {
+    if (e.target.id === "ai-modal") aiCloseModal();
+  });
+  document.getElementById("ai-send").addEventListener("click", aiSend);
+  document.getElementById("ai-input").addEventListener("keydown", (e) => {
+    if (e.key === "Enter" && !e.shiftKey) {
+      e.preventDefault();
+      aiSend();
+    }
+  });
+  document.getElementById("ai-clear").addEventListener("click", () => {
+    aiChatHistory = [];
+    aiRenderMessages();
+    aiSetStatus("");
+  });
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   renderAllDocsInto("cat-luat", (d) => d.type === "luat" || d.type === "nghidinh");
   renderAllDocsInto("cat-khungkientruc", (d) => d.category === "khungkientruc");
@@ -184,4 +381,7 @@ document.addEventListener("DOMContentLoaded", () => {
   renderTimeline();
 
   document.getElementById("search-input").addEventListener("input", (e) => doSearch(e.target.value));
+
+  initTheme();
+  initAIAssistant();
 });
