@@ -50,12 +50,7 @@ function renderDocCard(doc) {
       </div>
     </div>
     <div class="doc-body">
-      ${doc.pham_vi ? `<p>${doc.pham_vi}</p>` : ""}
-      ${renderKV(doc)}
-      ${renderList("Nội dung chính", doc.noi_dung)}
-      ${doc.diem_dang_chu_y ? `<div class="note-box">💡 <b>Điểm đáng chú ý:</b> ${doc.diem_dang_chu_y}</div>` : ""}
-      ${doc.che_tai ? `<div class="note-box red">⚖️ <b>Chế tài / trách nhiệm:</b> ${doc.che_tai}</div>` : ""}
-      <div class="source-links">
+      <div class="source-links source-links-top">
         ${doc.official_url ? `<a class="source-link official" href="${escapeHtml(doc.official_url)}" target="_blank" rel="noopener">
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
           Xem văn bản gốc chính thức (${escapeHtml(doc.official_url.includes("vanban.hanoi.gov.vn") ? "Cổng TTĐT TP Hà Nội" : doc.official_url.includes("congbao.chinhphu.vn") ? "Công báo Chính phủ — tìm kiếm" : "CSDL quốc gia về pháp luật")})
@@ -65,6 +60,11 @@ function renderDocCard(doc) {
           Bản PDF đã xử lý (lưu trên GitHub): ${escapeHtml(doc.source_name)}
         </a>
       </div>
+      ${doc.pham_vi ? `<p>${doc.pham_vi}</p>` : ""}
+      ${renderKV(doc)}
+      ${renderList("Nội dung chính", doc.noi_dung)}
+      ${doc.diem_dang_chu_y ? `<div class="note-box">💡 <b>Điểm đáng chú ý:</b> ${doc.diem_dang_chu_y}</div>` : ""}
+      ${doc.che_tai ? `<div class="note-box red">⚖️ <b>Chế tài / trách nhiệm:</b> ${doc.che_tai}</div>` : ""}
     </div>
   </div>`;
 }
