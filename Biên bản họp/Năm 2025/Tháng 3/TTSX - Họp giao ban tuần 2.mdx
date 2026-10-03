@@ -22,20 +22,20 @@
 **2.3.Hỗ trợ bảo trì [NEO Floor](https://docs.google.com/spreadsheets/d/1s1P4OAxUDQQOeRqWrUGddHT2rF48UiNk1ku5Qn2F-0M/edit?gid=0#gid=0)**
 |Tình trạng|Số lượng phát sinh trong tuần|Trương Minh Thắng|Lê Hải Sơn|Nguyễn Mạnh Toàn|Số lượng lũy kế|
 |:---:|:---:|:---:|:---:|:---:|:---:|
-|Hoàn thành|3|1|2|0|126|
+|Hoàn thành|11|2|8|0|134|
 |Đang xử lý|0|0|0|0|24|
 |Chưa xử lý|0|0|0|0|6|
-|Tổng cộng|3|1|2|0|156|
+|Tổng cộng|11|2|8|0|164|
 
 |Phân loại lỗi|Số lượng phát sinh trong tuần|Số lượng lũy kế|
 |:---:|:---:|:---:|
-|FoxAI làm thông báo chặn|0|2|
-|Lỗi thao tác người dùng|0|4|
+|FoxAI làm thông báo chặn|1|3|
+|Lỗi thao tác người dùng|1|5|
 |Lỗi SAP quy chuẩn|0|1|
-|Lỗi code|2|15|
+|Lỗi code|5|18|
 |Lỗi phần mềm bên thứ 3|0|0|
 |FoxAI từ chối thực hiện|0|0|
-|Tổng cộng|2|22|
+|Tổng cộng|7|27|
 
 **2.4.Hỗ trợ bảo trì [APFCO](https://docs.google.com/spreadsheets/d/1hrzJ8shZMMsz5Ueclong4FIQyl3XdeRd7nUgtvmYEyA/edit?gid=1120222708#gid=1120222708)**
 |Tình trạng|Số lượng phát sinh trong tuần|Trương Minh Thắng|Lê Hải Sơn|Nguyễn Mạnh Toàn|Số lượng lũy kế|
